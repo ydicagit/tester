@@ -1,0 +1,11 @@
+requests_oauthlib>=0.7.0
+flask>=0.11.1
+tox
+nose
+mock
+colorlog>=2.7.0
+coverage>=4.2
+PyGithub>=1.29
+hvac
+radon
+
