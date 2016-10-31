@@ -2,7 +2,7 @@
 module=$1
 for file in `grep -Ril  *`; do 
   echo "renaming  to $module in $file"
-  sed -i"bak" "s//$module/g" $file;
+  sed -i"bak" "s/qube_base/$module/g" $file;
   rm -rf $file.bak
 done
 
