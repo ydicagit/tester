@@ -8,5 +8,5 @@ done
 
 if [ -d qube_base ]; then
   echo "renaming directory qube_base  to $module"
-  mv qube_base $module
+  git mv qube_base $module
 fi
