@@ -6,7 +6,7 @@ for file in `grep -Ril qube_base * | grep -v customize.sh`; do
   rm -rf $file.bak
 done
 
-if [ -d  ]; then
+if [ -d qube_base ]; then
   echo "renaming directory qube_base  to $module"
-  mv  $module
+  mv qube_base $module
 fi
