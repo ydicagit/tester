@@ -1,0 +1,29 @@
+---
+name: qube_placeholder
+language: qube_language
+pipeline: build_bake_test_deployment:v0.1
+security:
+  keys_loc: "conf/"
+build:
+  script: scripts/docker-builder.sh
+  publish_artifact: dist/
+  lint: true
+bake:
+  strategy: docker
+  script: Dockerfile
+  repositories:
+    - name: google
+      prefix: gcr.io/qubeship
+      type: gcr
+test:
+  skip: true
+  functional:
+    provider: qubeship-sg
+deployment:
+  continuous_deployment: true
+  environments:
+    prod:
+      - type: qubeship_managed
+        id: "k8s1"
+        template_id: qube_external_app_v1
+        srcRepo: google
