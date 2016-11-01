@@ -1,0 +1,6 @@
+flask>=0.11.1
+flask-restful-swagger
+colorlog>=2.7.0
+PyGithub>=1.29
+hvac
+
