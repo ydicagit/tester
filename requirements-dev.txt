@@ -6,7 +6,5 @@ nose
 mock
 colorlog>=2.7.0
 coverage>=4.2
-PyGithub>=1.29
-hvac
 radon
 
