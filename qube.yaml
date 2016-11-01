@@ -5,7 +5,10 @@ pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"
 build:
-  script: scripts/docker-builder.sh
+  image:
+    name: python:3-onbuild
+    onbuild:
+      - scripts/build.sh
   publish_artifact: dist/
   lint: true
 bake:
