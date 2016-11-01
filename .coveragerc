@@ -1,6 +1,6 @@
 [run]
 branch = True
-include = qube_cli/*
+include = qube_base/*
 
 [report]
 exclude_lines =
