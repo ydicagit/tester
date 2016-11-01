@@ -9,12 +9,12 @@ from flask import Flask
 from flask_restful import Api
 from flask_restful_swagger import swagger
 from pkg_resources import resource_filename
-from qube_base.src.api.helloworld import HelloWorld
-from qube_base.src.commons.log import Log as LOG
+from qube.src.api.helloworld import HelloWorld
+from qube.src.commons.log import Log as LOG
 
 
 logging_config = resource_filename(
-    'qube_base.src.resources', 'logging_config.ini')
+    'qube.src.resources', 'logging_config.ini')
 fileConfig(logging_config)
 
 app = Flask(__name__)

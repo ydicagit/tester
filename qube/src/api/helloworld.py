@@ -4,7 +4,7 @@ Add docstring here
 """
 from flask_restful import Resource
 from flask_restful_swagger import swagger
-from qube_base.src.commons.log import Log as LOG
+from qube.src.commons.log import Log as LOG
 
 
 @swagger.model
