@@ -1,6 +1,6 @@
 # flake8: noqa
 # pylint: skip-file
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='qube_base',
       version='0.1',
@@ -9,7 +9,7 @@ setup(name='qube_base',
       author='Hyunji Kim',
       author_email='hyunji@qubeship.io',
       license='MIT',
-      packages=['qube_base.src', 'qube_base.tests'],
+      packages=find_packages(),
       test_suite='nose.collector',
       tests_require=['nose'],
       zip_safe=False)
