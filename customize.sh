@@ -3,6 +3,7 @@ module=$1
 repo=$2
 sonar_key=$3
 language=$4
+listener_port=$5
 
 for file in `grep -Ril qube_placeholder * | grep -v customize.sh | grep -v .whl`; do 
   echo "renaming  qube_placeholder to $module in $file"
@@ -22,6 +23,12 @@ done
 for file in `grep -Ril qube_language * | grep -v customize.sh| grep -v .whl`; do 
   echo "renaming  qube_language to $language in $file"
   sed -i".bak" "s/qube_language/$language/g" $file;
+  rm -rf $file.*bak*
+done
+
+for file in `grep -Ril qube_listener_port * | grep -v customize.sh| grep -v .whl`; do 
+  echo "renaming  qube_listener_port to $listener_port in $file"
+  sed -i".bak" "s/qube_listener_port/$listener_port/g" $file;
   rm -rf $file.*bak*
 done
 
