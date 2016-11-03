@@ -1,33 +1,28 @@
-1. Run Sonar , Tox , Pylint , Flake
-
-~/Downloads/sonar-scanner-2.8/bin/sonar-scanner
-```
-docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
-.tox/lint/bin/flake8 --ignore E111 --exclude=env,.tox --import-order-style=google
-.tox/pylint/bin/pylint qube_auth --rcfile=./default.pylintrc  --reports=y
-.tox/pylint/bin/pylint --rcfile=./default.pylintrc qube_auth/src/auth_listener.py
-.tox/pylint/bin/pylint --rcfile=./default.pylintrc qube_auth/src/oauth.py
-http://192.168.99.100:3000/auth/login?cb=http%3A%2F%2F192.168.99.100%3A9080%2Flogin-github%3F&provider=github 
-```
-
-1. Customize
-./customize.sh api_pipeline api_pipeline PIPE  
-modified files would be setup.py scripts/run.sh scripts/bake.sh sonar-project.properties
-
-git add 
-git commit 
+1. Clone Repo  
+2. CD to the repo directory  
+cp .env.sh.template .env.sh  
+modify and supply the environment variables  
 
 
-2. Build 
-scripts/docker-builder.sh
-scripts/bake.sh
+3. if you want to just run the container  
+follow login instructions at https://github.com/Qubeship/qube_base_python/blob/master/login-instructions.md and proceed to step 5.  
 
 
-3. Run  
+4. Build  & Bake  
+scripts/docker-builder.sh  
+scripts/bake.sh  
+
+5. Run  
 scripts/run.sh  
 
+6. end points
+ start adding your api resources  
 
-start adding your api resources  
+
+## extra info 
+to run sonar, flake , pylint
+https://github.com/Qubeship/qube_base_python/blob/master/sonar-flake-pylint.md
+
 
 
 
