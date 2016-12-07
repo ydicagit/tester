@@ -14,8 +14,8 @@ if [ "$RUN_FROM_REMOTE_REGISTRY" == "1" ]; then
 	IMG_NAME=$QUBE_DOCKER_IMAGE
 fi
 
-docker rm -f qube_placeholder_1
+docker rm -f ${QUBE_BASE_NAME}_1
 
-docker run --name qube_placeholder_1 -d -it -p $DEFAULT_LISTENER_PORT:$DEFAULT_LISTENER_PORT \
+docker run --name ${QUBE_BASE_NAME}_1 -d -it -p $DEFAULT_LISTENER_PORT:$DEFAULT_LISTENER_PORT \
     --env-file .env.sh \
     $IMG_NAME
