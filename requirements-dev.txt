@@ -1,10 +1,7 @@
-requests_oauthlib>=0.7.0
-flask>=0.11.1
-flask-restful-swagger
-tox
-nose
-mock
 colorlog>=2.7.0
 coverage>=4.2
-radon
-
+flask>=0.11.1
+flask-restful>=0.3.5
+flask-restful-swagger-2>=0.31
+mock
+nose
