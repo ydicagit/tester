@@ -2,50 +2,34 @@
 """
 Add docstring here
 """
-from flask_restful import Resource
-from flask_restful_swagger import swagger
+from flask.ext.restful_swagger_2 import Resource, swagger
+from flask_restful import reqparse
+from qube.src.api.swagger_models.parameters \
+    import header_ex, path_ex, query_ex
+from qube.src.api.swagger_models.response_messages \
+    import response_msgs
 from qube.src.commons.log import Log as LOG
 
 
-@swagger.model
-class HelloWorldItem(object):
-    def __init__(self, arg1):
-        pass
+params = [header_ex, path_ex, query_ex]
 
 
 class HelloWorld(Resource):
-    "HelloWorld resource"
-    @swagger.operation(notes='hello world get operation',
-                       responseClass=HelloWorldItem.__name__,
-                       nickname='Hello World',
-                       parameters=[
-                           {
-                               "name": "body",
-                               "description": "Hello World",
-                               "required": True,
-                               "allowMultiple": False,
-                               "paramType": "body",
-                               "dataType": HelloWorldItem.__name__
-                           }
-                       ],
-                       responseMessages=[
-                           {
-                               "code": 200,
-                               "message": "OK"
-                           },
-                           {
-                               "code": 400,
-                               "message": "Bad request"
-                           },
-                           {
-                               "code": 401,
-                               "message": "Unauthorized"
-                           },
-                           {
-                               "code": 500,
-                               "message": "Internal server error"
-                           }
-                       ])
-    def get(self):
+    @swagger.doc(
+        {
+            'tags': ['Hello World'],
+            'description': 'hello world get operation',
+            'parameters': params,
+            'responses': response_msgs
+        }
+    )
+    def get(self, name=None):
         LOG.debug("hello world")
-        return {'hello': 'world'}
+
+        parser = reqparse.RequestParser()
+        parser.add_argument('sth')
+        args = parser.parse_args()
+        name = name if name is not None else 'test'
+        sth = args['sth'] if args['sth'] is not None else 'hello world'
+
+        return {name: sth}

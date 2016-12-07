@@ -1,4 +1,4 @@
-flask>=0.11.1
-flask-restful-swagger
 colorlog>=2.7.0
-
+flask>=0.11.1
+flask-restful>=0.3.5
+flask-restful-swagger-2>=0.31

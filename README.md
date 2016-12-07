@@ -15,8 +15,9 @@ scripts/bake.sh
 5. Run  
 scripts/run.sh  
 
-6. end points
- start adding your api resources  
+6. Create a new module
+python -m qube_cli.src.qube repo create --organization Qubeship --name api_notifications --base https://github.com/qubeship/qube_base_python.git --token  --github_base https://github.com --sonar_reporting_key NOTI
+python -m qube_cli.src.qube repo create --organization Qubeship --name api_auth --base https://github.com/qubeship/qube_base_python.git --token 3396c6cd4cb13a29063ce97007a0b43826b6b508 --github_base https://github.com --sonar_reporting_key AUTH --language python
 
 
 ## extra info 

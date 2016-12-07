@@ -6,4 +6,6 @@ include = qube/*
 exclude_lines =
     pragma: no cover
     if __name__ == .__main__.:
+    def main
 omit = *log.py*
+show_missing = True
