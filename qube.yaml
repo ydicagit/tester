@@ -1,6 +1,6 @@
 ---
-name: qube_placeholder
-language: qube_language
+name: tester
+language: python
 pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"

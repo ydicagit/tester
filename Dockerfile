@@ -1,8 +1,8 @@
 FROM python:3.3
-ADD dist/qube_placeholder*.whl .
+ADD dist/tester*.whl .
 ADD requirements.txt .
 RUN pip install -r requirements.txt
-RUN pip install qube_placeholder*.whl 
+RUN pip install tester*.whl 
 
 # install Consul CLI tool
 RUN apt-get update && apt-get install -y jq unzip
