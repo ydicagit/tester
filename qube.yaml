@@ -5,13 +5,13 @@ security:
   keys_loc: "conf/"
 notification:
   type: slack
-  domain: 
+  domain: qubeship
   channel: qubeship
 build:
   image:
-    name: null
+    name: python:3-onbuild
     onbuild:
-      - null
+      - scripts/build.sh
   publish_artifact: dist/
   lint: true
 bake:
@@ -27,10 +27,10 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name:tester
+  service_name: tester
   environments:
     prod:
       - type: qubeship_managed
-        id: 
+        id: k8s2
         template_id: qube_external_app_v1
         srcRepo: google
