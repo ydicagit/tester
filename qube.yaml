@@ -27,7 +27,7 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name:tester1
+  service_name: tester1
   environments:
     prod:
       - type: qubeship_managed
