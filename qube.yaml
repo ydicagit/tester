@@ -1,17 +1,17 @@
-name: prj-tester
+name: tester
 language: python
 pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"
 notification:
   type: slack
-  domain: qubeship
+  domain: 
   channel: qubeship
 build:
   image:
     name: python:3-onbuild
     onbuild:
-      - scripts/build.sh
+      - pip install tox wheel && pip list && tox && python setup.py bdist_wheel
   publish_artifact: dist/
   lint: true
 bake:
@@ -27,10 +27,10 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name: tester
+  service_name:tester1
   environments:
     prod:
       - type: qubeship_managed
-        id: k8s2
+        id: 
         template_id: qube_external_app_v1
         srcRepo: google
