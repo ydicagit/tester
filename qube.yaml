@@ -11,10 +11,7 @@ build:
   image:
     name: python:3-onbuild
     onbuild:
-      - pip install tox wheel
-      - pip list 
-      - tox 
-      - python setup.py bdist_wheel
+      - pip install tox wheel && pip list && tox && python setup.py bdist_wheel
   publish_artifact: dist/
   lint: true
 bake:
