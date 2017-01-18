@@ -1,20 +1,17 @@
-name: tester
+name: hyunji-tester
 language: python
 pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"
 notification:
   type: slack
-  domain: qubeship
+  domain: 
   channel: qubeship
 build:
   image:
     name: python:3-onbuild
     onbuild:
-      - pip install tox wheel
-      - pip list
-      - tox
-      - python setup.py bdist_wheel
+      - pip install tox wheel && pip list && tox && python setup.py bdist_wheel
   publish_artifact: dist/
   lint: true
 bake:
@@ -30,10 +27,10 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name: tester1
+  service_name: hyunji-tester
   environments:
     prod:
       - type: qubeship_managed
-        id: k8s2
+        id: 
         template_id: qube_external_app_v1
         srcRepo: google
