@@ -3,10 +3,6 @@ language: python
 pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"
-notification:
-  type: slack
-  domain: slack
-  channel: qubeship
 build:
   image:
     name: python:3-onbuild
