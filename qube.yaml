@@ -26,6 +26,7 @@ test:
   functional:
     provider: qubeship-sg
 deployment:
+  skip: true
   continuous_deployment: true
   service_name: yuval
   environments:
